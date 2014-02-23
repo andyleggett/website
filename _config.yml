@@ -1,3 +1,4 @@
 name: andyleggett.co.uk
 markdown: redcarpet
 pygments: true
+exclude: ['node_modules', 'sass','Gruntfile.js','config.rb','package.json','*.sublime*']
