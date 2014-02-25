@@ -3,8 +3,8 @@
 A [Jekyll](https://github.com/mojombo/jekyll) site.
 
 ## Author
-Created by [Andy Leggett] of andyleggett.co.uk(http://andyleggett.co.uk), a
-one man operation out of Stirling in the UK.
+Created by Andy Leggett of andyleggett.co.uk(http://andyleggett.co.uk), a
+one man operation out of Stirling in the UK (but probably not united for much longer - boo!).
 
 ## Copyright & License
 
