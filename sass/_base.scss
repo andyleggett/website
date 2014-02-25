@@ -1,0 +1,28 @@
+@import "compass/reset";
+@import "compass/css3/user-interface";
+@import "compass";
+@import "susy";
+
+@function em($target, $context: $base-font-size) {
+   @if $target == 0 { @return 0 }
+   @return $target / $context + 0em;
+}
+
+//clearfix if needed
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+//image replacement
+.image-replacement {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+img {
+	width:100%;
+	height: auto;
+}

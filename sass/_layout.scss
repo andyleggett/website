@@ -1,0 +1,8 @@
+html, body{
+	background: $background-colour;
+}
+
+.page{
+	//@include susy-grid-background;
+	@include container($total-columns, $break-1, $break-2);
+}
