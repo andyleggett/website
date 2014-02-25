@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 				tasks: ['jshint','concat','uglify']
 			},
 			jekyll: {
-				files: ['*.html', '*.yml', '_includes/**', '_posts/**', '_layouts/**', '_templates/**'],
+				files: ['*.html', '*.yml', '_includes/**', '_posts/**', '_layouts/**', '_templates/**', 'css/**', 'js/**'],
 				tasks: ['jekyll']
 			},
 			livereload: {
@@ -59,6 +59,9 @@ module.exports = function(grunt) {
 				dest: 'css/site.css'
 			}
 		},
+		jshint: {
+			all: ['_scripts/**/*.js']
+		},
 		concat: {
 			options: {
 				separator: ';',
@@ -93,6 +96,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-jekyll');
 
