@@ -60,14 +60,11 @@ module.exports = function(grunt) {
 			}
 		},
 		jshint: {
-			all: ['_scripts/**/*.js']
+			all: ['_scripts/*.js']
 		},
 		concat: {
-			options: {
-				separator: ';',
-			},
 			dist: {
-				src: ['_scripts/**/*.js', '_scripts/libs/*.js'],
+				src: ['_scripts/libs/jquery/dist/jquery.js', '_scripts/*.js'],
 				dest: 'js/app.js',
 			}
 		},
@@ -91,6 +88,7 @@ module.exports = function(grunt) {
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -98,6 +96,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-jekyll');
 
 	grunt.registerTask('default',['connect', 'watch']);
