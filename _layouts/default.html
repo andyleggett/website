@@ -5,14 +5,34 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>{{ page.title }}</title>
 	<meta name="viewport" content="width=device-width">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
 	<div class="page">
 		<header class="header">
-			<h1 class="title"><a href="/">{{ site.name }}</a></h1>
+			<div class="inner-header">
+				<div class="logo">
+					<a href="/">
+						<div class="image"></div>
+					</a>
+				</div>
+				<div class="navigation">
+					<img class="nav-icon" src="images/menu-icon.png" />
+					<nav>
+						<ul class="nav-links">
+							<li><a href="about.html">About</a></li>
+							<li><a href="work.html">Work</a></li>
+							<li><a href="projects.html">Projects</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
 		</header>
-		{{ content }}
+		<section class="content">
+			{{ content }}
+		</section>
 		<footer class="footer">
 		</footer>
 	</div>

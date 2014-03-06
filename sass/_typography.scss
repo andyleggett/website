@@ -1,6 +1,10 @@
 body{
-	font-size: 100%;
-	line-height: 1.25;
+	@include establish-baseline();
+	font-family: "Open Sans";
+}
+
+#{headings(all)}{
+	color: $title-colour;
 }
 
 h1 {
