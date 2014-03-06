@@ -1,0 +1,7 @@
+{
+	"name": "andyleggett.co.uk",
+	"version": "0.1.0",
+	"dependencies": {
+		"jquery": "latest"
+	}
+}
