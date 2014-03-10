@@ -4,7 +4,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>{{ page.title }}</title>
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="width=device-width">
+	<meta name="author" content="Andy Leggett">
+	<meta name="description" content="{{ page.description }}">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/css/site.css">
 </head>
@@ -23,6 +27,7 @@
 						<ul class="nav-links">
 							<li><a href="about.html">About</a></li>
 							<li><a href="work.html">Work</a></li>
+							<li><a href="blog.html">Blog</a></li>
 							<li><a href="projects.html">Projects</a></li>
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
@@ -30,11 +35,17 @@
 				</div>
 			</div>
 		</header>
-		<section class="content">
-			{{ content }}
-		</section>
+		<div class="content-container">
+			<section class="content">
+				{{ content }}
+			</section>
+		</div>
 		<footer class="footer">
+			<div class="inner-footer">
+				<span>&copy; Andrew Leggett 2013</span>
+			</div>
 		</footer>
+		<script src="js/app.min.js"></script>
 	</div>
 </body>
 </html>
