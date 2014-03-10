@@ -18,11 +18,13 @@ $footer-colour: #e1e1e1;
 $border-colour: #999;
 $title-colour: #111;
 $link-colour: #ddd;
+$highlight-colour: #0073b1;
+$highlight-label-colour: #fff;
 
 //susy grid
 $total-columns: 8;
 $column-width: 4em;
-$gutter-width: 1em;
+$gutter-width: 1.5em;
 $grid-padding: $gutter-width;
 
 $break-1: 48em 12;

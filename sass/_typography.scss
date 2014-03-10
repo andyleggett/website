@@ -24,7 +24,8 @@
 }
 
 body{
-	@include establish-baseline();
+	font-size: 100%;
+	line-height: 1.5;
 	font-family: "Open Sans";
 }
 
@@ -33,6 +34,7 @@ body{
 	color: $title-colour;
 }
 
+/*
 h1 {
 	font-size:2em;
 	padding:1.25em 0;
@@ -47,11 +49,40 @@ h3 {
 	font-size:1.23077em;
 	padding:1.40615em 0;
 }
+*/
 
 .page-title{
 	font-size: 2.4em;
-	padding: 1em 0 0.4em 0;
+	padding: 0.6em 0 0.4em 0;
 	font-weight: 700;
 	color: $title-colour;
 
 }
+
+.page-subtitle{
+	font-size: 1.4em;
+	padding: 0.6em 0 0.4em 0;
+	font-weight: 300;
+	color: lighten($title-colour, 50%);
+}
+
+p {
+	margin: 1em 0;
+	word-break: break-word;
+}
+
+.hire-me{
+
+	display: block;
+	background-color: $highlight-colour;
+	color: $highlight-label-colour;
+	padding: 1em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 80%;
+	margin: 2em auto;
+	position: relative;
+}
+
+

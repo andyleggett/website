@@ -1,0 +1,124 @@
+.about-text{
+
+	@include at-breakpoint($break-1) {
+		@include span-columns(6);
+  	}
+}
+
+.about-banner{
+	font-size: 1.4em;
+	padding: 0.6em 0 0.4em 0;
+	font-weight: 300;
+	color: lighten($title-colour, 50%);
+}
+
+.about-subtitle{
+	font-size: 2em;
+	padding: 0.6em 0 0.1em 0;
+	font-weight: 700;
+}
+
+.about-heading{
+
+	font-size: 1.4em;
+	padding: 0.6em 0 0.1em 0;
+	font-weight: 700;
+}
+
+.about-left{
+
+	@include at-breakpoint($break-1) {
+		@include span-columns(6);
+  	}
+}
+
+.about-right{
+	@include at-breakpoint($break-1) {
+		@include span-columns(6 omega);
+  	}
+}
+
+.about-skill-icons{
+	overflow: hidden;
+	margin: 3em 0;
+	min-height: 6em;
+}
+
+.about-skill-icon{
+
+	@include span-columns(2,6);
+	@include isolate-grid(2,6);
+
+	img{
+		width: 80px;
+		margin: 0 auto;
+		display: block;
+	}
+
+	.wide{
+		width: 160px;
+		height: auto;
+		margin: 0 auto;
+		display: block;
+	}
+}
+
+.about-skill-icon-wide{
+
+	@include span-columns(4);
+	@include isolate-grid(4);
+
+	margin-bottom: 2em;
+
+	@include at-breakpoint($break-1) {
+
+		@include span-columns(3);
+		@include isolate-grid(3);
+
+		margin-bottom: 0;
+
+	}
+	img{
+		width: 80px;
+		margin: 0 auto;
+		display: block;
+
+	}
+
+	.wide{
+		width: 160px;
+		height: auto;
+		margin: 0 auto;
+		display: block;
+	}
+}
+
+.testimonials{
+
+	.quote{
+		position: relative;
+		margin: 4em 1em;
+		padding-right: 1em;
+		border-right: 3px solid $highlight-colour;
+
+
+
+		.title{
+			color: $highlight-colour;
+			font-size: 1.5em;
+			font-weight: 700;
+			text-align: right;
+		}
+
+		.author, .text{
+			text-align: right;
+
+		}
+	}
+
+
+
+
+
+}
+

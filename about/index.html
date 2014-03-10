@@ -18,13 +18,13 @@ title: About Me
 
 		<div class="about-skill-icons">
 			<div class="about-skill-icon">
-				<img src="images/html5.png"/>
+				<img src="/images/html5.png"/>
 			</div>
 			<div class="about-skill-icon">
-				<img src="images/css3.png"/>
+				<img src="/images/css3.png"/>
 			</div>
 			<div class="about-skill-icon">
-				<img src="images/js.png"/>
+				<img src="/images/js.png"/>
 			</div>
 		</div>
 		<p>Creating websites that really deliver a great experience is tough and constantly evolving.  I use the latest workflows and techniques such as progressive enhancement and responsive layouts to produce sites that work across all devices.</p>
@@ -34,13 +34,13 @@ title: About Me
 		<h3 class="about-heading">Back End Development</h3>
 		<div class="about-skill-icons">
 			<div class="about-skill-icon">
-				<img src="images/node.png"/>
+				<img src="/images/node.png"/>
 			</div>
 
 			<div class="about-skill-icon">
-				<img  src="images/php.png"/>
+				<img  src="/images/php.png"/>
 			</div><div class="about-skill-icon">
-			<img src="images/yii.png"/>
+			<img src="/images/yii.png"/>
 		</div>
 	</div>
 	<p>It's important to understand the full stack of development.  I just as happy dealing with databases and server languages and node.js bridges a gap here.</p>
@@ -52,16 +52,16 @@ title: About Me
 	<h3 class="about-heading">Workflow</h3>
 	<div class="about-skill-icons">
 		<div class="about-skill-icon-wide">
-			<img class="wide" src="images/jekyll.png"/>
+			<img class="wide" src="/images/jekyll.png"/>
 		</div>
 		<div class="about-skill-icon-wide">
-			<img src="images/grunt.png"/>
+			<img src="/images/grunt.png"/>
 		</div>
 		<div class="about-skill-icon-wide">
-			<img src="images/sass.png"/>
+			<img src="/images/sass.png"/>
 		</div>
 		<div class="about-skill-icon-wide">
-			<img src="images/git.png"/>
+			<img src="/images/git.png"/>
 		</div>
 	</div>
 
@@ -73,9 +73,23 @@ title: About Me
 	<div class="about-right">
 		<p>Workflow isn't just about tools.  It's also about communication and people</p>
 		<p>Having clients as part of the flow means that no one is left in the dark about what is happening in a project and I make it easy for clients to give me feedback and evolve projects.</p>
-		<a href="contact.html" class="hire-me">Hire me for April 2014</a>
+
 	</div>
 </section>
+<a href="/contact" class="hire-me">Hire me for April 2014</a>
 <section class="second-section">
 <h2 class="about-subtitle">Testimonials</h2>
+<div class="about-left">
+<div class="testimonials">
+		{% for post in site.categories.about %}
+		<blockquote class="quote">
+			<div class="title">{{ post.title }}</div>
+			<div class="author">{{ post.author}}</div>
+			<div class="text">{{post.content}}</div>
+		</blockquote>
+		{% endfor %}
+	<div>
+</div>
+<div class="about-right">
+</div>
 </section>
