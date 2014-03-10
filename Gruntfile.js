@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 				tasks: ['jshint','concat','uglify']
 			},
 			jekyll: {
-				files: ['*.html', '*.yml', '_includes/**', '_posts/**', '_layouts/**', '_templates/**', 'css/**', 'js/**', 'images/**'],
+				files: ['about/*.html', '*.yml', '_includes/**', '_posts/**', '_layouts/**', '_templates/**', 'css/**', 'js/**', 'images/**'],
 				tasks: ['jekyll']
 			},
 			livereload: {

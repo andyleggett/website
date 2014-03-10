@@ -2,3 +2,4 @@ name: Andy Leggett
 markdown: redcarpet
 pygments: true
 exclude: ['node_modules', 'sass','.sass-cache','Gruntfile.js','config.rb','package.json','*.sublime*','bower.json','README.md']
+permalink: pretty
