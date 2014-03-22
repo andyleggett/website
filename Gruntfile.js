@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 				tasks: ['jshint','concat','uglify']
 			},
 			jekyll: {
-				files: ['about/*.html', '*.yml', '_includes/**', '_posts/**', '_layouts/**', '_templates/**', 'css/**', 'js/**', 'images/**'],
+				files: ['*.html','about/*.html','contact/*.html','projects/*.html','work/*.html','blog/*.html', '*.yml', '_includes/**', '_posts/**', '_layouts/**', '_templates/**','_plugins/**', 'css/**', 'js/**', 'images/**'],
 				tasks: ['jekyll']
 			},
 			livereload: {
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			dist: {
-				src: ['_scripts/libs/jquery/dist/jquery.js', '_scripts/*.js'],
+				src: ['_scripts/libs/jquery/dist/jquery.js', '_scripts/libs/jquery.validation/jquery.validate.js', '_scripts/*.js'],
 				dest: 'js/app.js',
 			}
 		},
