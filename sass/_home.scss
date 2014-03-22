@@ -1,0 +1,10 @@
+.home-testimonials{
+
+	blockquote{
+		display: none;
+	}
+
+	blockquote:first-child{
+		display: block;
+	}
+}

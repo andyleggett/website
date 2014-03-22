@@ -1,0 +1,85 @@
+.form-item{
+	overflow:hidden;
+	position: relative;
+}
+
+.input{
+
+	overflow: hidden;
+
+	@include at-breakpoint($break-1) {
+		@include span-columns(6);
+	}
+
+	padding-bottom: 1em;
+
+}
+
+.form-message{
+
+	display:none;
+	background-color: $divider-colour;
+	border-radius: 1em;
+	font-size: 1em;
+	opacity: 1;
+	width: 100%;
+	padding: 1em;
+	margin: 0 0 0.5em 0;
+
+	@include at-breakpoint($break-1) {
+
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 40%;
+	}
+}
+
+label{
+	display: block;
+	margin: 1em 0 0 0;
+	font-weight: 700;
+}
+
+textarea, input, select{
+	font-size: 100%;
+	line-height: 1.5;
+	font-family: "Open Sans";
+}
+
+.field{
+	display: block;
+	margin: 1em 0 0 0;
+	padding: 0.5em;
+	width: 100%;
+}
+
+select.field{
+	width: 80%;
+	margin: 1em auto 0;
+}
+
+.required:after{
+		content: "*";
+		margin-left: 0.5em;
+		color: red;
+}
+
+
+.button{
+
+	display: block;
+	background-color: $highlight-colour;
+	color: $highlight-label-colour;
+	padding: 1em;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin: 2em 0;
+	text-align: center;
+	cursor: pointer;
+	border: none;
+}
+
+label.error{
+	color: red;
+}

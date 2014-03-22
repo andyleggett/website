@@ -1,5 +1,6 @@
 html, body{
 	background: $background-colour;
+	overflow-x: hidden;
 }
 
 .header{
@@ -107,7 +108,7 @@ html, body{
 }
 
 .content-container{
-
+	position: relative;
 }
 
 .content{
@@ -119,6 +120,10 @@ html, body{
 	//	@include susy-grid-background;
   	}
 
+}
+
+.group {
+	overflow: hidden;
 }
 
 
@@ -136,11 +141,45 @@ html, body{
 	padding: 2em 0;
 }
 
-section{
-	overflow: hidden;
-	padding: 2em 0;
+.highlight-section{
+	//border-top: 1px dashed $divider-colour;
+	position: relative;
+	background: $section-colour;
 }
 
-.second-section{
-	border-top: 1px dashed #e1e1e1;
+.highlight-section:before, .highlight-section:after {
+  content: "";
+  position: absolute;
+  background: $section-colour;
+  top: 0;
+  bottom: 0;
+  width: 9999px;
+}
+
+.highlight-section:before {
+  right: 100%;
+}
+.highlight-section:after {
+  left: 100%;
+}
+
+.left {
+	text-align: left;
+}
+
+.centre {
+	text-align: center;
+}
+
+.col-left{
+
+	@include at-breakpoint($break-1) {
+		@include span-columns(6);
+  	}
+}
+
+.col-right{
+	@include at-breakpoint($break-1) {
+		@include span-columns(6 omega);
+  	}
 }

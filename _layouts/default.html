@@ -9,38 +9,39 @@
 	<meta name="viewport" content="width=device-width">
 	<meta name="author" content="Andy Leggett">
 	<meta name="description" content="{{ page.description }}">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
+	{% include analytics.html %}
 	<div class="page">
-		<header class="header">
+		<header class="header" role="banner">
 			<div class="inner-header">
 				<div class="logo">
 					<a href="/">
 						<div class="image"></div>
 					</a>
 				</div>
-				<div class="navigation">
+				<div class="navigation" >
 					<img class="nav-icon" src="/images/menu-icon.png" />
-					<nav>
+					<nav role="navigation">
 						<ul class="nav-links">
 							<li><a href="/about">About</a></li>
 							<li><a href="/work">Work</a></li>
-							<li><a href="/blog">Blog</a></li>
-							<li><a href="/projects">Projects</a></li>
+							<!--<li><a href="/blog">Blog</a></li>
+							<li><a href="/projects">Projects</a></li>-->
 							<li><a href="/contact">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
 			</div>
 		</header>
-		<div class="content-container">
-			<section class="content">
+		<div class="content-container" role="main">
+			<div class="content">
 				{{ content }}
-			</section>
+			</div>
 		</div>
-		<footer class="footer">
+		<footer class="footer" role="contentinfo">
 			<div class="inner-footer">
 				<span>&copy; Andrew Leggett 2013</span>
 			</div>

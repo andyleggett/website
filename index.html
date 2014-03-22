@@ -3,4 +3,25 @@ layout: default
 title: Home
 ---
 
-<h1 class="page-title">Andy Leggett</h1>
+
+<section class="highlight-section">
+<h1 class="home-title">Andy Leggett - Front End Developer</h1>
+<h2 class="home-subtitle">Using the latest technologies to build effective and usable sites and apps</h2>
+<a href="/contact" class="button home">Hire me for May 2014</a>
+
+</section>
+<section>
+	<h2 class="subtitle">Featured Work</h2>
+</section>
+<section>
+	<h2 class="subtitle">My Happy Clients</h2>
+	<div class="home-testimonials">
+		{% for post in site.categories.about %}
+		<blockquote class="quote">
+			<div class="title">{{ post.title }}</div>
+			<div class="author">{{ post.author}}</div>
+			<div class="text">{{post.content}}</div>
+		</blockquote>
+		{% endfor %}
+	</div>
+</section>

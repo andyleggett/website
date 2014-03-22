@@ -2,5 +2,58 @@
 layout: default
 title: Contact Me
 ---
+<h1 class="title">Contact me</h1>
+<section>
+	<div class="col-left">
+		<h2 class="banner-text">I'm always excited about discussing new projects. Why not get in touch and see how I can help?</h2>
+		<p>I've helped lots of happy clients over the years in many different ways.  It's great to work in a team of developers and designers and bring an idea to life.</p>
+		<p>even if we don't end up working together it would be good to talk as I might have some good advice for you or you might keep me in mind down the line.</p>
+	</div>
+</section>
+<section class="second-section">
+	<form id="contact-form" action="http://getsimpleform.com/messages?form_api_token=ba4eedd33de7b68265d2e74fbac89077" method="post">
+		<div class="form-item">
+			<div class="input">
+				<label for="fullname" class="required">Name</label>
+				<input id="fullname" name="fullname" type="text" class="field medium" value="" maxlength="255" tabindex="1" required  aria-required="true" aria-describedby="message1" data-messageid="message1"/>
+			</div>
+			<p class="form-message" id="message1">How do you like to be addressed? Help me out if your name is difficult to pronounce.</p>
+		</div>
+		<div class="form-item">
+			<div class="input">
+				<label  for="email" class="required" >Email</label>
+				<input id="email" name="email" type="email" spellcheck="false" class="field" value="" maxlength="255" tabindex="2" required aria-required="true" aria-describedby="message2" data-messageid="message2"/>
+			</div>
+			<p class="form-message" id="message2">I'll only use this to contact you - no cat videos, promise!</p>
+		</div>
+		<div class="form-item">
+			<div class="input">
+				<label for="description" class="required" >Brief Project Description</label>
+				<textarea id="description" name="description" class="field" spellcheck="true" rows="10" cols="50" tabindex="4" required aria-required="true"  aria-describedby="message3" data-messageid="message3"></textarea>
+			</div>
+			<p class="form-message" id="message3">Just give me a quick idea of what exciting stuff you have in mind.  Gives us something to get our teeth into when we talk.</p>
+		</div>
+		<div class="form-item">
+			<div class="input">
+				<label  for="budget">Approximate Budget</label>
+				<input id="budget" name="budget" placeholder="Budgets must exceed &pound;500" type="text" spellcheck="false" class="field" value="" maxlength="255" tabindex="5"  aria-describedby="message4"  data-messageid="message4"/>
+			</div>
+			<p class="form-message" id="message4">Just a rough idea of your budget.  I don't work on small projects.</p>
+		</div>
+		<div class="form-item">
+			<div class="input">
+				<label  for="start-date">Start Date</label>
+				<select class="field" name="start-date" aria-describedby="message5"  data-messageid="message5">
+					<option value="Please select">Please select</option>
+					<option value="1 month">within 1 month</option>
+					<option value="2-3 months">within 2-3 months</option>
+					<option value="3 months">3 months or more</option>
+				</select>
 
- <h1 class="page-title">Contact me</h1>
+			</div>
+			<p class="form-message" id="message5">Don't panic it's only an approximate start date.  I want to make sure I can fit you in.</p>
+		</div>
+		<div class="form-buttons">
+			<input id="submit-button" name="submit-button" class="button small centre" type="submit" value="Send it!"/></div>
+		</div>
+	</form>
