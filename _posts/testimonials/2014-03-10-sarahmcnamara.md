@@ -1,5 +1,6 @@
 ---
 author: Sarah McNamara
+company: Autonomy Multimedia
 categories:
 - about
 title: Various Apps

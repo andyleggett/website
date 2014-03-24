@@ -1,5 +1,6 @@
 ---
 author: Sarah Windsor
+company: INSET Online
 categories:
 - about
 title: Online Learning Systems
