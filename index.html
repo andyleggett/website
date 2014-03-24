@@ -5,22 +5,16 @@ title: Home
 
 
 <section class="highlight-section">
-<h1 class="home-title">Andy Leggett - Front End Developer</h1>
-<h2 class="home-subtitle">Using the latest technologies to build effective and usable sites and apps</h2>
-<a href="/contact" class="button home">Hire me for May 2014</a>
-
+<h1 class="home-title">Andy Leggett - Freelance Front End Developer</h1>
+<h2 class="home-subtitle">Using the latest web technologies to build effective sites and applications</h2>
+<a href="/contact" class="button home centre">Hire me for {% months_from_now 2 %}</a>
 </section>
 <section>
-	<h2 class="subtitle">Featured Work</h2>
-</section>
-<section>
-	<h2 class="subtitle">My Happy Clients</h2>
-	<div class="home-testimonials">
+	<div class="cycle-slideshow home-testimonials"  data-cycle-slides="> blockquote" data-cycle-timeout="30000">
 		{% for post in site.categories.about %}
 		<blockquote class="quote">
-			<div class="title">{{ post.title }}</div>
-			<div class="author">{{ post.author}}</div>
 			<div class="text">{{post.content}}</div>
+			<div class="author">{{ post.author}} {%if post.company %} &#64; {% endif %}{{ post.company }}</div>
 		</blockquote>
 		{% endfor %}
 	</div>

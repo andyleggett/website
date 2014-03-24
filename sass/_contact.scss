@@ -1,0 +1,23 @@
+.contact-list{
+
+
+	padding-left: 1em;
+	border: 1px dotted $highlight-colour;
+
+	li {
+		margin: 1em 0;
+		font-size: 1.2em;
+
+		a{
+			text-decoration: none;
+			color: $text-colour;
+		}
+	}
+
+	@include at-breakpoint($break-1) {
+		margin-top: 2em;
+		margin-left: 3em;
+	}
+
+}
+

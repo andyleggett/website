@@ -1,6 +1,9 @@
 html, body{
 	background: $background-colour;
+	height: 100%;
 	overflow-x: hidden;
+	overflow-y: scroll;
+  	-webkit-overflow-scrolling: touch;
 }
 
 .header{
@@ -141,34 +144,27 @@ html, body{
 	padding: 2em 0;
 }
 
+section{
+	padding: 1em 0;
+}
+
 .highlight-section{
-	//border-top: 1px dashed $divider-colour;
 	position: relative;
 	background: $section-colour;
-}
-
-.highlight-section:before, .highlight-section:after {
-  content: "";
-  position: absolute;
-  background: $section-colour;
-  top: 0;
-  bottom: 0;
-  width: 9999px;
-}
-
-.highlight-section:before {
-  right: 100%;
-}
-.highlight-section:after {
-  left: 100%;
+	margin: 0 -500%;
+  	padding: 0.5em 500%;
 }
 
 .left {
 	text-align: left;
 }
 
-.centre {
+.centre-content {
 	text-align: center;
+}
+
+.centre{
+	margin: 0 auto;
 }
 
 .col-left{

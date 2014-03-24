@@ -15,6 +15,12 @@ body{
 	font-size: 100%;
 	line-height: 1.5;
 	font-family: "Open Sans";
+	color: $text-colour;
+}
+
+a{
+	text-decoration: none;
+	color: $dark-link-colour;
 }
 
 
@@ -50,7 +56,12 @@ body{
 	font-weight: 700;
 }
 
-
+.home-subtitle{
+	font-size: 1.2em;
+	padding: 0.6em 0 0.1em 0;
+	font-weight: 700;
+	text-align: center;
+}
 
 p {
 	margin: 1em 0;

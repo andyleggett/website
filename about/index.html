@@ -1,14 +1,15 @@
 ---
 layout: default
 title: About Me
+description: The online profile of Andy Leggett, a front end web developer based in Scotland
 ---
 {% include forkme.html %}
-<h1 class="title">About me</h1>
+<h1 class="title">About</h1>
 <section>
 	<div class="group">
 		<div class="col-left">
 			<h2 class="banner-text">I'm a Front End Developer with over 10 years commercial experience on the web.</h2>
-			<p>I enjoy combining HTML5, CSS3 and Javascript and various backend technolgies to create websites and web applications with clean and maintainable code for happy clients.</p>
+			<p>I enjoy combining HTML5, CSS3 and Javascript and various backend technologies to create websites and web applications with clean and maintainable code for happy clients.</p>
 			<p>When I'm not working, you'll find me and my little dog climbing the nearest mountain to my home in Stirling, Scotland  - whatever the weather!</p>
 		</div>
 		<div class="col-right">
@@ -73,7 +74,7 @@ title: About Me
 			<p>I also use tools like Jekyll to produce the right kind of site - if it doesn't need a database you won't get one!</p>
 		</div>
 		<div class="col-right">
-			<p>Workflow isn't just about tools.  It's also about communication and people</p>
+			<p>Workflow isn't just about tools.  It's also about communication and people.</p>
 			<p>Having clients as part of the flow means that no one is left in the dark about what is happening in a project and I make it easy for clients to give me feedback and evolve projects.</p>
 			<a href="/contact" class="button medium">Hire me for {% months_from_now 2 %}</a>
 		</div>
@@ -81,12 +82,12 @@ title: About Me
 </section>
 <section class="highlight-section">
 	<div class="group">
-		<h2 class="subtitle">My Happy Clients</h2>
+		<h2 class="subtitle">Clients</h2>
 		<div class="testimonials">
 			{% for post in site.categories.about %}
 			<blockquote class="quote">
 				<div class="title">{{ post.title }}</div>
-				<div class="author">{{ post.author}}</div>
+				<div class="author">{{ post.author}} {%if post.company %} &#64; {% endif %}{{ post.company }}</div>
 				<div class="text">{{post.content}}</div>
 			</blockquote>
 			{% endfor %}
