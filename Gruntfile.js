@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			dist: {
-				src: ['_scripts/libs/jquery/dist/jquery.js', '_scripts/libs/jquery.validation/jquery.validate.js', '_scripts/*.js'],
+				src: ['_scripts/libs/jquery/dist/jquery.js', '_scripts/libs/jquery.validation/jquery.validate.js',  '_scripts/libs/jquery-cycle2/build/jquery.cycle2.js','_scripts/libs/jquery-cycle2/build/plugin/jquery.cycle2.carousel.min.js', '_scripts/*.js'],
 				dest: 'js/app.js',
 			}
 		},
