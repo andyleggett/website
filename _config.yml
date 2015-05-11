@@ -1,4 +1,4 @@
-name: The online portfolio of Andy Leggett - A freelance front end developer based in Scotland
+name: The online portfolio of Andy Leggett - A freelance full stack developer based in Scotland
 markdown: redcarpet
 pygments: true
 exclude: ['node_modules', 'sass','.sass-cache','Gruntfile.js','config.rb','package.json','*.sublime*','bower.json','README.md']
