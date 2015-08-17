@@ -1,96 +1,52 @@
 ---
 layout: default
 title: About Me
-description: The online profile of Andy Leggett, a full stack web developer based in Scotland
+description: The online profile of Andy Leggett, a full stack web application developer based in Scotland
 ---
 {% include forkme.html %}
-<h1 class="title">About</h1>
+<h1 class="title">About me</h1>
 <section>
 	<div class="group">
 		<div class="col-left">
-			<h2 class="banner-text">I'm a full stack web developer with 14 years commercial experience on the web.</h2>
-			<p>I enjoy combining HTML5, CSS3 and Javascript and various backend technologies to create websites and web applications with clean and maintainable code for happy clients.</p>
-			<p>When I'm not working, you'll find me and my little dog climbing a mountain near my home in Stirling, Scotland  - whatever the weather!</p>
-		</div>
-		<div class="col-right">
-		</div>
-	</div>
-</section>
-<section>
-	<h2 class="subtitle">Skills</h2>
-	<div class="col-left">
-		<h3 class="heading">Front End Development</h3>
-		<div class="about-skill-icons">
-			<div class="about-skill-icon">
-				<img src="/images/html5.png"/>
+			<h2 class="banner-text">I'm a full stack web application developer with 14 years of commercial experience.</h2>
+			<p>I enjoy combining HTML5, CSS3 and Javascript and various backend technologies to create web applications with clean and maintainable code for happy clients.</p>
+			<p>Over the years I've worked with lots of companies in different sectors.  These include televison, the car industy and the education sector.
+				<p>When I'm not working, you'll find me and my little dog climbing a mountain near my home in Stirling, Scotland  - whatever the weather!</p>
 			</div>
-			<div class="about-skill-icon">
-				<img src="/images/css3.png"/>
-			</div>
-			<div class="about-skill-icon">
-				<img src="/images/js.png"/>
+			<div class="col-right">
+				<img src="/images/me.jpg" alt="It's me" style="width: 90%; margin: 0 auto;display: block;"/>
 			</div>
 		</div>
-		<p>Creating websites that really deliver a great experience is tough and constantly evolving.  I use the latest workflows and techniques such as progressive enhancement and responsive layouts to produce sites that work across all devices.</p>
-		<p>I write code that is easy to read and maintain.  It is semantic and cross-browser compatible. It is also as fast as I can make it so that your users are as happy as possible.</p>
-	</div>
-	<div class="col-right">
-		<h3 class="heading">Back End Development</h3>
-		<div class="about-skill-icons">
-			<div class="about-skill-icon">
-				<img src="/images/node.png"/>
+	</section>
+	<section>
+		<div class="group">
+			<div class="col-left">
+				<h3 class="heading">Development</h3>
+				<p>Creating applications that really deliver a great user experience is tough.  Technologies are constantly evolving and this can be overwhelming for clients.</p>
+				<p>Making sure that you use development techniques that allow for maintainability well into the future is key.</p>
+				<p>It's important to understand the full stack of development.  This allows for a total build capability and an understanding of what's required in different parts of an application when working in a team.</p>
+				<p>The speed and ease of use of your application is paramount to rapid engagement. Working with users from the start is the only way to really understand needs.</p>
 			</div>
-			<div class="about-skill-icon">
-				<img  src="/images/php.png"/>
+			<div class="col-right">
+				<h3 class="heading">Workflow</h3>
+				<p>Modern tools allow developers to spend more time on the  of the application rather than dealing with the mechanics of coding.</p>
+				<p>I employ many of these in my day-to-day work including Grunt, Bower, Sass and Git.</p>
+				<p>Workflow isn't just about tools.  It's also about communication and people.</p>
+				<p>Having clients as the major part of the flow means that no one is left in the dark about what is happening in a project and I make it easy for clients to give me feedback and evolve projects.</p>
 			</div>
-			<div class="about-skill-icon">
-				<img src="/images/yii.png"/>
+		</div>
+	</section>
+	<section class="highlight-section">
+		<div class="group">
+			<h2 class="subtitle">Clients</h2>
+			<div class="testimonials">
+				{% for post in site.categories.testimonial %}
+					<blockquote class="quote">
+						<div class="title">{{ post.title }}</div>
+						<div class="author">{{ post.author}} {%if post.company %} &#64; {% endif %}{{ post.company }}</div>
+						<div class="text">{{post.content}}</div>
+					</blockquote>
+				{% endfor %}
 			</div>
 		</div>
-		<p>It's important to understand the full stack of development.  I am just as happy dealing with databases and server languages and node.js bridges a gap here.</p>
-		<p>I know that in business the speed of your site or application is paramount to user engagement and something to take extremely serious for Search Engine Optimisation. Waiting for a slow backend is not an option.</p>
-	</div>
-</section>
-<section>
-	<h3 class="heading">Workflow</h3>
-	<div class="about-skill-icons group">
-		<div class="about-skill-icon-wide">
-			<img class="wide" src="/images/jekyll.png"/>
-		</div>
-		<div class="about-skill-icon-wide">
-			<img src="/images/grunt.png"/>
-		</div>
-		<div class="about-skill-icon-wide">
-			<img src="/images/sass.png"/>
-		</div>
-		<div class="about-skill-icon-wide">
-			<img src="/images/git.png"/>
-		</div>
-	</div>
-	<div class="group">
-		<div class="col-left">
-			<p>Modern tools allow developers to spend more time on the actual essence of the application rather than dealing with the mechanics of coding.</p>
-			<p>I employ many of these in my day-to-day work including Grunt, Bower, Sass and Git.</p>
-			<p>I also use tools like Jekyll to produce the right kind of site - if it doesn't need a database you won't get one!</p>
-		</div>
-		<div class="col-right">
-			<p>Workflow isn't just about tools.  It's also about communication and people.</p>
-			<p>Having clients as part of the flow means that no one is left in the dark about what is happening in a project and I make it easy for clients to give me feedback and evolve projects.</p>
-			<a href="/contact" class="button medium">Hire me</a>
-		</div>
-	</div>
-</section>
-<section class="highlight-section">
-	<div class="group">
-		<h2 class="subtitle">Clients</h2>
-		<div class="testimonials">
-			{% for post in site.categories.about %}
-			<blockquote class="quote">
-				<div class="title">{{ post.title }}</div>
-				<div class="author">{{ post.author}} {%if post.company %} &#64; {% endif %}{{ post.company }}</div>
-				<div class="text">{{post.content}}</div>
-			</blockquote>
-			{% endfor %}
-		</div>
-	</div>
-</section>
+	</section>

@@ -1,7 +1,7 @@
 ---
 author: Richard Wellum
 categories:
-- about
+- testimonial
 title: e-Bay Warehousing Application
 ---
 Andy is great to work with and we will certainly be working with him again in future. He sets clear expectations of his timelines in advance, providing a very honest and accurately broken out quote, and exceeds them, producing a very high standard of work.

@@ -2,7 +2,7 @@
 author: Geoff Newman
 company: Recruitment Genius
 categories:
-- about
+- testimonial
 title: Video Interview System
 ---
 EXCEPTIONAL WORK.

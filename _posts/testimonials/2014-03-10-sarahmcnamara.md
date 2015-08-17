@@ -2,7 +2,7 @@
 author: Sarah McNamara
 company: Autonomy Multimedia
 categories:
-- about
+- testimonial
 title: Various Apps
 ---
 Andy has excellent HTML, CSS, Javascript, SQL and PHP skills just to name a few. We have worked on some long-term projects over the last few years and his knowledge and expertise is second to none.

@@ -2,7 +2,7 @@
 author: Oliver Saville
 company: AssessmentDay
 categories:
-- about
+- testimonial
 title: Aptitude Testing
 ---
 Andy has been a dream to work with – he instantly understood our project objectives and simply delivered.

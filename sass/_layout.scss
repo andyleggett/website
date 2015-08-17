@@ -146,6 +146,7 @@ html, body{
 
 section{
 	padding: 1em 0;
+	overflow: hidden;
 }
 
 .highlight-section{
@@ -178,4 +179,24 @@ section{
 	@include at-breakpoint($break-1) {
 		@include span-columns(6 omega);
   	}
+}
+
+.articles-list {
+	li {
+		font-size: 1.2em;
+
+		span {
+			font-style: italic;
+			font-size: 12px;
+
+		}
+
+		margin-bottom: 1em;
+	}
+}
+
+.highlight{
+	border: 1px solid #aaa;
+	padding: 1.4em;
+	font-family: monospace;
 }

@@ -1,4 +1,4 @@
-(function($){
+(function($, hljs){
 
 	var navMenu = $(".nav-links");
 
@@ -6,6 +6,8 @@
 
 		navMenu.slideToggle("fast");
 	});
+
+	hljs.initHighlightingOnLoad();
 
 	$("#contact-form").validate({
 		submitHandler: function(form) {
@@ -48,6 +50,4 @@
 		$("#" + $(this).data("messageid")).slideUp();
 	});
 
-
-
-})(jQuery);
+})(jQuery, hljs);
