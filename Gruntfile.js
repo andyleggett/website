@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 				tasks: ['jshint','concat','uglify']
 			},
 			jekyll: {
-				files: ['*.html','about/*.html','start/*.html','projects/*.html','work/*.html','articles/*.html', '*.yml', '_includes/**', '_posts/**', '_layouts/**', '_templates/**','_plugins/**', 'css/**', 'js/**', 'images/**'],
+				files: ['*.html','about/*.html','start/*.html','projects/*.html','work/*.html','articles/*.html', '*.yml', '_includes/**', '_posts/**', '_layouts/**', '_templates/**','_plugins/**', 'css/**', 'js/**/**', 'images/**'],
 				tasks: ['jekyll']
 			},
 			livereload: {
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			dist: {
-				src: ['_scripts/libs/jquery/dist/jquery.js', '_scripts/libs/jquery.validation/jquery.validate.js',  '_scripts/libs/jquery-cycle2/build/jquery.cycle2.js','_scripts/libs/jquery-cycle2/build/plugin/jquery.cycle2.carousel.min.js', '_scripts/libs/highlight.pack.js', '_scripts/*.js'],
+				src: ['_scripts/libs/jquery/dist/jquery.js', '_scripts/libs/jquery.validation/jquery.validate.js',  '_scripts/libs/jquery-cycle2/build/jquery.cycle2.js','_scripts/libs/jquery-cycle2/build/plugin/jquery.cycle2.carousel.min.js', '_scripts/libs/highlight.pack.js', '_scripts/libs/two/build/two.js', '_scripts/libs/ramda/dist/ramda.js', '_scripts/*.js'],
 				dest: 'js/app.js',
 			}
 		},

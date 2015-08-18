@@ -1,4 +1,4 @@
-(function($, hljs){
+(function($, hljs, T, R){
 
 	var navMenu = $(".nav-links");
 
@@ -50,4 +50,4 @@
 		$("#" + $(this).data("messageid")).slideUp();
 	});
 
-})(jQuery, hljs);
+})(jQuery, hljs, Two, R);
