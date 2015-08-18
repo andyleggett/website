@@ -3,6 +3,8 @@ _site
 *.sublime*
 .sass-cache
 node_modules
-css
+css/site.css
+css/fontawesome.css
 _scripts/libs
-js
+js/app.min.js
+js/app.js
