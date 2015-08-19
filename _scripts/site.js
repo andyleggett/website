@@ -9,7 +9,7 @@
 
 	hljs.initHighlightingOnLoad();
 
-	$("#contact-form").validate({
+	/*$("#contact-form").validate({
 		submitHandler: function(form) {
 			form.submit();
 		},
@@ -41,7 +41,7 @@
 			}
 		},
 		debug:true
-	});
+	});*/
 
 	$(".field").on("focus", function(){
 

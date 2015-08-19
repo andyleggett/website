@@ -17,11 +17,7 @@ We'll use some Ramda functions to iterate over our data structures. I want to co
 To start with we'll use an object to specify the rectangle and create a function that calculates the (x,y) co-ordinates of each vertex. Each vertex point is represented by an object with x and y properties.
 
 ```js
-var rectangle = {	centreX: 3,
-					centreY: 5,
-					width: 10,
-					height: 2
-				};
+var rectangle = {centreX: 3, centreY: 5, width: 10,	height: 2};
 
 var verticies = function(rect){
 	var halfWidth = rect.width / 2;
@@ -34,13 +30,13 @@ var verticies = function(rect){
 	];
 }
 
-//gives [{x:2, y:3}, {x:7, y:3}, {x:2, y:5}, {x:7, y:5}];
+//gives [{x:-2, y:4}, {x:8, y:6}, {x:-2, y:4}, {x:8, y:6}];
 ```
  
 We'll first try to check if this rectangle is within a rectangular bounding shape by calculating those bounds. Let's look at a way of starting with a set of bounds and progressively updating them as we check each vertex on the rectangle. 
 
 ```js
-var bounds = function(rect){
+var bounds = function(verticies){
 	return R.reduce(
 			function(acc, point){
 				return {
@@ -56,13 +52,13 @@ var bounds = function(rect){
 				minY: Infinity,
 				maxY: -Infinity
 			}, 
-			rect
+			verticies
 		);
 }
 
 ```
 
-The function is a *reduce* or *left fold* that takes an accumulating function, a starting value and a collection.  This progressively takes an accumulator value and the next value in the collection and returns a new accumulator value.  You can see here that we start with an object that holds the starting minimum and maximum x and y bounds.  We use Infinity as a starting value that is large enough that any point value will be smaller than (or larger in the negative case).
+The function is a *reduce* or *left fold* that takes an accumulating function, a starting value and a collection.  This progressively takes an accumulator value and the next value in the vertex collection and returns a new accumulator value.  You can see here that we start with an object that holds the starting minimum and maximum, x and y bounds.  We use Infinity as a starting value that is large enough that any point value will be smaller than (or larger in the negative case).
 
 
 We can now write a function to check if any point is within the bounds and use it to map over each point in a rectangle we want to check for validity.
@@ -74,7 +70,7 @@ var pointInBounds = R.curry(function(bounds, point){
 
 ```
 
-You can see the check being carried out by the boolean expression but what's this curry function doing.  Well it's giving us the opportunity to partially apply the function if we need to; it's allowing the data for the bounds to be given upfront and hence turn a function that checks general bounds into one that only check that specific set of bounds.  We'll see this is action next when we use it as a predicate function to check each of the points in a rectangle.
+You can see the check being carried out by the boolean expression but what's this curry function doing.  Well it's giving us the opportunity to partially apply the function; it's allowing the data for the bounds to be given upfront and hence turn a function that checks general bounds into one that only check that specific set of bounds.  We'll see this is action next when we use it as a predicate function to check each of the points in a rectangle.
 
 ```js
 var containsRect = function(checkrect, containrect){

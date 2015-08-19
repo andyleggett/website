@@ -33,24 +33,27 @@
     });
 
     var check = verticies({
-        centreX: -2,
-        centreY: 5.5,
+        centreX: 6,
+        centreY: 7.5,
         width: 6,
         height: 2
     });
 
-    var createRect = function(two, rect) {
+    var createRect = function(two, rect, rotation) {
         var scale = 20;
         var width = (rect[1].x - rect[0].x) * scale;
         var height = (rect[2].y - rect[0].y) * scale;
         var centreX = 300 + (rect[0].x * scale) + width / 2;
         var centreY = rect[0].y * scale + height / 2;
 
-        return two.makeRectangle(centreX, centreY, width, height);
+        var rect = two.makeRectangle(centreX, centreY, width, height);
+        rect.rotation = rotation;
+
+        return rect;
     };
 
-    var containRect = createRect(two, contain);
-    var checkRect = createRect(two, check);
+    var containRect = createRect(two, contain, Math.PI / 4);
+    var checkRect = createRect(two, check, 0);
 
     containRect.fill = 'rgb(0, 200, 255)';
     containRect.opacity = 0.75;
@@ -96,11 +99,12 @@
         };
     });
 
-    var angle = rotationAngle(contain[0], contain[1]);
-    var rotator = R.map(rotatePoint(angle));
+    var angle = rotationAngle(contain[0], contain[2]);
+    console.log(angle);
+    var rotator = R.map(rotatePoint(-angle));
 
     var containsRect = function(checkrect, containrect) {
-        return R.map(pointInBounds(bounds(containrect)), checkrect);
+        return R.map(pointInBounds(rotator(bounds(containrect))), rotator(checkrect));
     };
 
     console.log(containsRect(check, contain));
