@@ -119,7 +119,7 @@ var getTeamNames = R.compose(sortBySurname, projectNames, filterTeam);
 Let's look at an example from the General Election project. Data is sent through about each constituency and declared areas are shown on the TV output on a UK map graphic.  A small part of the data transformation is filtering the declared constituencies.
 
 ```js
-var projectMapItem = R.project('gssID', 'fullName', 'partyCodeLast', 'partyCodeNow', 'gainHoldWin');
+var projectMapItem = R.project(['gssID', 'fullName', 'partyCodeLast', 'partyCodeNow', 'gainHoldWin']);
 
 var sortByDeclarationTime = R.sortBy(R.prop('declarationTime'));
 
@@ -130,7 +130,7 @@ var declared = R.compose(R.map(projectMapItem), sortByDeclarationTime, R.filter(
 
 As you can see I'm using lots of Ramda's functions to build the intent of each sub-section of the compose pipeline.  This time I'm also using them in the composition.  The level you use them at depends on the readability of the final statements.  Reading from right to left: the first function *filter* uses the isDeclared predicate to provide a new array with only the constituencies with a status of D (for Declared).  This is then applied as the input of a sort by declaration time, and finally only parts of the constituency object that are required for the display are projected into the resulting array.
 
-These are just a couple of examples of where a toolbox functions saves you time and effort.
+These are just a couple of examples of where a toolbox of functions saves you time and effort.
 
 ##Conclusion
 
