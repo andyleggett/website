@@ -1,10 +1,11 @@
 (function(Two, R) {
 
     //functions
+
     var rotatePoint = R.curry(function(angle, about, point) {
         return {
-            x: about.x + ((point.x - about.x) * Math.cos(angle) + (point.y - about.y) * Math.sin(angle)),
-            y: about.y + (-(point.x - about.x) * Math.sin(angle) + (point.y - about.y) * Math.cos(angle))
+            x: about.x + ((point.x - about.x) * Math.cos(angle) - (point.y - about.y) * Math.sin(angle)),
+            y: about.y + ((point.x - about.x) * Math.sin(angle) + (point.y - about.y) * Math.cos(angle))
         };
     });
 
@@ -32,9 +33,7 @@
         ];
     }
 
-    var createRect = function(id, two, rect, fill) {
-        var scale = 96.8;
-
+    var createRect = function(id, scale, two, rect, fill) {
         var newRect = two.makeRectangle(rect.centre.x * scale, rect.centre.y * scale, rect.width * scale, rect.height * scale);
         newRect.id = id;
         newRect.rotation = rect.angle || 0;
@@ -45,11 +44,21 @@
         return newRect;
     };
 
-    var recalculateRect = function(rect, position) {
+    var createCircle = R.curry(function(scale, two, point) {
+        var newCircle = two.makeCircle(point.x * scale, point.y * scale, 10);
+        
+        newCircle.fill = 'rgb(255, 0, 0)';
+        newCircle.opacity = 0.75;
+        newCircle.noStroke();
+
+        return newCircle;
+    });
+
+    var recalculateRect = function(scale, rect, position) {
         return R.merge(rect, {
             centre: {
-                x: position.x / 96.8,
-                y: position.y / 96.8
+                x: position.x / scale,
+                y: position.y / scale
             }
         });
     }
@@ -87,7 +96,7 @@
         var rotator = rotatePoint(-containrect.angle, containrect.centre);
         var vertexChecker = pointInBounds(R.compose(bounds, R.map(rotator), verticies)(containrect));
 
-        return R.all(vertexChecker, R.compose(R.map(rotator), verticies)(checkrect));
+        return R.all(vertexChecker, R.compose(R.map(rotator),verticies)(checkrect));
     });
 
     //interaction 1
@@ -113,22 +122,34 @@
             angle: 0
         };
 
+        var parentWidth = $('#animation1').width();
+
+        var canvas = {
+            width: parentWidth,
+            height: parentWidth / 2,
+            scale: parentWidth / 10
+        };
+
         var elem = document.getElementById('animation1').children[0];
 
         var two = new Two({
-            width: 968,
-            height: 484,
+            width: canvas.width,
+            height: canvas.height,
             autostart: true
         }).appendTo(elem);
 
         var mouse = new Two.Vector();
 
-        var containRect = createRect('contain1', two, contain, 'rgb(0, 200, 255)');
-        var checkRect = createRect('check1', two, check, 'rgb(200, 10, 255)');
+        var containRect = createRect('contain1', canvas.scale, two, contain, 'rgb(0, 200, 255)');
+        var checkRect = createRect('check1', canvas.scale ,two, check, 'rgb(200, 10, 255)');
 
         two.update();
 
         var $output = $('#output1');
+
+        $('#twocontainer1 svg')
+            .attr('viewBox', '0 0 968 484')
+            .attr('preserveAspectRatio', 'xMidYMid meet');
 
         $('#twocontainer1')
             .on('mousemove', function(e) {
@@ -150,8 +171,9 @@
 
         two.bind('update', function() {
             checkRect.translation.set(mouse.x, mouse.y);
-            check = recalculateRect(check, mouse);
+            check = recalculateRect(canvas.scale, check, mouse);
             $output.text(containsRect(contain, check) ? 'Yes' : 'No');
+            
         });
     })();
 
@@ -178,18 +200,26 @@
             angle: -Math.PI / 5
         };
 
+        var parentWidth = $('#animation1').width();
+
+        var canvas = {
+            width: parentWidth,
+            height: parentWidth / 2,
+            scale: parentWidth / 10
+        };
+
         var elem = document.getElementById('animation2').children[0];
 
         var two = new Two({
-            width: 968,
-            height: 484,
+            width: canvas.width,
+            height: canvas.height,
             autostart: true
         }).appendTo(elem);
 
         var mouse = new Two.Vector();
 
-        var containRect = createRect('contain2', two, contain, 'rgb(0, 200, 255)');
-        var checkRect = createRect('check2', two, check, 'rgb(200, 10, 255)');
+        var containRect = createRect('contain2', canvas.scale, two, contain, 'rgb(0, 200, 255)');
+        var checkRect = createRect('check2', canvas.scale, two, check, 'rgb(200, 10, 255)');
 
         two.update();
 
@@ -208,7 +238,7 @@
                 clearInterval(angleInterval);
             })
             .on('touchstart', function(e) {
-                touchTimer = setTimeout(startRotate, 400);
+                touchTimer = setTimeout(startRotate, 1000);
             })
             .on('touchend', function(e) {
                 clearTimeout(touchTimer);
@@ -243,7 +273,7 @@
 
         two.bind('update', function() {
             checkRect.translation.set(mouse.x, mouse.y);
-            check = recalculateRect(check, mouse);
+            check = recalculateRect(canvas.scale, check, mouse);
             $output.text(containsRect(contain, check) ? 'Yes' : 'No');
         });
     })();
@@ -255,9 +285,9 @@
                 x: 5,
                 y: 2.5
             },
-            width: 5,
-            height: 3,
-            angle: Math.PI / 10
+            width: 3,
+            height: 2,
+            angle: -3 * Math.PI / 4
         };
 
         var check = {
@@ -265,23 +295,31 @@
                 x: 5,
                 y: 2.5
             },
-            width: 3,
-            height: 1,
-            angle: -Math.PI / 5
+            width: 2,
+            height: 0.5,
+            angle: Math.PI / 5
+        };
+
+        var parentWidth = $('#animation1').width();
+
+        var canvas = {
+            width: parentWidth,
+            height: parentWidth / 2,
+            scale: parentWidth / 10
         };
 
         var elem = document.getElementById('animation3').children[0];
 
         var two = new Two({
-            width: 968,
-            height: 484,
-            autostart: true
+           width: canvas.width,
+            height: canvas.height,
+           autostart: true
         }).appendTo(elem);
 
         var mouse = new Two.Vector();
 
-        var containRect = createRect('contain3', two, contain, 'rgb(0, 200, 255)');
-        var checkRect = createRect('check3', two, check, 'rgb(200, 10, 255)');
+        var containRect = createRect('contain3', canvas.scale, two, contain, 'rgb(0, 200, 255)');
+        var checkRect = createRect('check3', canvas.scale, two, check, 'rgb(200, 10, 255)');
 
         two.update();
 
@@ -297,10 +335,11 @@
                 }, 50);
             })
             .on('mouseup', function(e) {
+                clearTimeout(touchTimer);
                 clearInterval(angleInterval);
             })
             .on('touchstart', function(e) {
-                touchTimer = setTimeout(startRotate, 400);
+                touchTimer = setTimeout(startRotate, 1000);
             })
             .on('touchend', function(e) {
                 clearTimeout(touchTimer);
@@ -334,9 +373,10 @@
 
         two.bind('update', function() {
             checkRect.translation.set(mouse.x, mouse.y);
-            check = recalculateRect(check, mouse);
+            check = recalculateRect(canvas.scale, check, mouse);
             $output.text(containsRect(contain, check) ? 'Yes' : 'No');
         });
+
     })();
 
 })(Two, R);

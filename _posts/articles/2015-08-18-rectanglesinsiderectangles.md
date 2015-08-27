@@ -90,8 +90,7 @@ So we first calculate the specfic set of bounds and use partial application to c
 Why did we use the curry function again here? Well it lets us specify data for the containing rectangle without having to say what the rectangle we are checking is.  We can produce a function to check any rectangle inside the container. You can see the code in action below. Click the purple rectangle and move it around to run a check.
 
 <div class="centre-content title">Blue contains purple? <span id="output1"></span></div>
-<div id="animation1"><div id="twocontainer1"></div></div>
-
+<div id="animation1" class="centre-content"><div id="twocontainer1"></div></div>
 
 ##Life gets a little harder
 
@@ -108,8 +107,8 @@ We need to work out how to calculate the rectangle verticies to include this rot
 ```js
 var rotatePoint = R.curry(function(angle, about, point){
 	return {
-		x: about.x + ((point.x - about.x) * Math.cos(angle) + (point.y - about.y) * Math.sin(angle)),
-		y: about.y + (-(point.x - about.x) * Math.sin(angle) + (point.y - about.y)  * Math.cos(angle))
+		x: about.x + ((point.x - about.x) * Math.cos(angle) - (point.y - about.y) * Math.sin(angle)),
+		y: about.y + ((point.x - about.x) * Math.sin(angle) + (point.y - about.y)  * Math.cos(angle))
 	};
 });
 
@@ -140,10 +139,10 @@ var rotatePoint = R.curry(function(angle, about, point){
     }
 ```
 
-Now we have the correct vertex co-ordinates we can use the same process to check each one is inside the container.  Check it out.  Hold down the mouse to change the angle of the purple rectangle.
+Now we have the correct vertex co-ordinates we can use the same process to check each one is inside the container.  Check it out.  Hold down the mouse (or tap and hold) to change the angle of the purple rectangle.
 
 <div class="centre-content title">Blue contains purple? <span id="output2"></span></div>
-<div id="animation2"><div id="twocontainer2"></div></div>
+<div id="animation2" class="centre-content"><div id="twocontainer2"></div></div>
 
 ##I know where you're going with this
 
@@ -153,17 +152,20 @@ The same process of rotating points could work for us here too.  If the containe
 
 ```js
 var containsRect = R.curry(function(containrect, checkrect) {
-	var vertexChecker = pointInBounds(bounds(verticies(containrect)));
+    var rotator = rotatePoint(-containrect.angle, containrect.centre);
+    var vertexChecker = pointInBounds(R.compose(bounds, R.map(rotator), verticies)(containrect));
 
-	return R.all(vertexChecker, verticies(checkrect));
+    return R.all(vertexChecker, R.compose(R.map(rotator),verticies)(checkrect));
 });
 ```
 
 <div class="centre-content title">Blue contains purple? <span id="output3"></span></div>
-<div id="animation3"><div id="twocontainer3"></div></div>
+<div id="animation3" class="centre-content"><div id="twocontainer3"></div></div>
 
 ##Conclusion
 
 There's a bit of maths in this solution which can make finding a solution challenging.  Breaking the problem down into component functions allows you to keep your attention focussed on individual parts and using the ideas of functional programming such as currying allows us to build powerful tools quickly and easily.
 
 There are different solutions to those component parts as well and each one's implementation is abstracted inside the function making it easy to swap with something else in the future.
+
+Working code at <a href="http://codepen.io/andyleg/pen/XbvEKW/" class="article-link" target="_blank">http://codepen.io/andyleg/pen/XbvEKW/</a> and as a gist at <a href="https://gist.github.com/andyleggett/64cee4936635e6b89481" class="article-link" target="_blank">https://gist.github.com/andyleggett/64cee4936635e6b89481</a>
