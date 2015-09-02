@@ -164,7 +164,7 @@ var containsRect = R.curry(function(containrect, checkrect) {
 
 ##Conclusion
 
-There's a bit of maths in this solution which can make finding a solution challenging.  Breaking the problem down into component functions allows you to keep your attention focussed on individual parts and using the ideas of functional programming such as currying allows us to build powerful tools quickly and easily.
+There's a bit of maths in this which can make finding a solution challenging.  Breaking the problem down into component functions allows you to keep your attention focussed on individual parts and using the ideas of functional programming such as currying allows us to build powerful tools quickly and easily.
 
 There are different solutions to those component parts as well and each one's implementation is abstracted inside the function making it easy to swap with something else in the future.
 
