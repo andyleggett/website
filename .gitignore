@@ -1,10 +1,6 @@
 _site
 .DS_Store
-*.sublime*
 .sass-cache
 node_modules
-css/site.css
-css/fontawesome.css
-_scripts/libs
-js/app.min.js
-js/app.js
+css
+js

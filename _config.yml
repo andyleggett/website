@@ -1,5 +1,5 @@
 name: Andy Leggett - A full stack web application developer based in Stirling, Scotland
 markdown: redcarpet
-pygments: true
-exclude: ['node_modules', 'sass','.sass-cache','Gruntfile.js','config.rb','package.json','*.sublime*','bower.json','README.md']
+highlighter: true
+exclude: ['node_modules', 'sass','.sass-cache','gulpfile.js','config.rb','package.json','README.md']
 permalink: pretty
