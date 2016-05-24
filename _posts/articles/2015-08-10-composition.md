@@ -3,25 +3,26 @@ layout: post
 categories:
 - articles
 title: Function Composition with Ramda
+script: composition.js
 ---
 
 In the run up to the General Election 2015, I worked with a client to take live data and process it for
 use as television output.  During the project I changed the way I had been programming with Javascript. I went more functional than ever before.
 
-On several previous projects I used Backbone to structure the application.  Backbone has a dependency on Underscore (or Lodash if you'd prefer) which I had used to try and be functional in style. These libraries both have many higher-order functions 
+On several previous projects I used Backbone to structure the application.  Backbone has a dependency on Underscore (or Lodash if you'd prefer) which I had used to try and be functional in style. These libraries both have many higher-order functions
 that make traversal and manipulation of data easy and I'd enjoyed the fact that I hadn't written a for loop in a while.
 
 I hadn't really thought about the way I was working until I found <a class="article-link" href="http://www.youtube.com/watch?v=m3svKOdZijA" target="_blank">Hey Underscore, You're Doing It Wrong</a> and this changed everything. I was doing it wrong (in my little world). I looked around for an alternative and found <a class="article-link" href="http://ramdajs.com" target="_blank">Ramda</a>.  This library allowed me to start bringing some of the ideas in Brian Lonsdorf's video into my work.
 
 ##Partial Application
 
-The problem is that Underscore and Lodash have their data first and iteratee second meaning that partial application of functions isn't really possible. *Note: There is a version of Lodash called lodash-fp which aims to remedy this.* 
+The problem is that Underscore and Lodash have their data first and iteratee second meaning that partial application of functions isn't really possible. *Note: There is a version of Lodash called lodash-fp which aims to remedy this.*
 
 Let's look at an example of this. This is the map function in Lodash, it takes a collection of items and produces a new collection based on a transformation function. This example will give us a list of squad numbers for a football team.
 
 ```js
 var getSquadNumber = function(player){
-	return player.squadNumber;	
+	return player.squadNumber;
 };
 
 var squadNumbers = _.map(squadPlayers, getSquadNumber);
@@ -47,7 +48,7 @@ The function squadNumberMap is ready to accept one parameter - the squad player 
 
 ##Composition
 
-Composition is the act of combining two or more functions together.  These functions can be thought of as a pipeline of computation from a starting input to an eventual output.  The aim is to eliminate a lot of the redundent *glue* code that would be generated from calling one function after another and storing the intermediate state in local variables.
+Composition is the act of combining two or more functions together.  These functions can be thought of as a pipeline of computation from a starting input to an eventual output.  The aim is to eliminate a lot of the redundant *glue* code that would be generated from calling one function after another and storing the intermediate state in local variables.
 
 Let's consider a computation on our players example again.  We'll write some functions that will take a squad of players, filter out the team members and then return their names sorted by surname.
 
@@ -57,7 +58,7 @@ First we'll look at the composition function offered by Ramda in use for this ex
 var teamNames = R.compose(sortBySurname, projectNames, filterTeam)(squadPlayers);
 ```
 
-I like to look at this statement going from right to left.  We put in the squadPlayers collection at the right-hand end and it flows through each function - *filterTeam*, then *projectNames*, then *sortBySurname*, each function taking the output of the last as its input, until it returns the result into the *teamNames* variable. 
+I like to look at this statement going from right to left.  We put in the squadPlayers collection at the right-hand end and it flows through each function - *filterTeam*, then *projectNames*, then *sortBySurname*, each function taking the output of the last as its input, until it returns the result into the *teamNames* variable.
 
 If your brain doesn't work that way round you can use the *pipe* function which is basically compose in reverse. I come from a Maths background so I like compose.
 
@@ -68,14 +69,12 @@ var teamNames = R.pipe(filterTeam, projectNames, sortBySurname)(squadPlayers);
 In either case you can see how readable the code is without the noise of variables making the place look untidy.  We can provide the functions for each stage as pure functions than are easy to reason about and can be built up from Ramda's other utilities. Let's do that now.
 
 ```js
-//filterTeam definition
 var isInTeam = function(player){
 	return player.inTeam;
 }
 
 var filterTeam = R.filter(isInTeam);
 
-//projectNames definition
 var projectName = function(player){
 	return {
 		firstName: player.firstName,
@@ -85,7 +84,6 @@ var projectName = function(player){
 
 var projectNames = R.map(projectName);
 
-//sortBySurname definition
 var getSurname = function(names){
 	return names.surname;
 }
@@ -98,13 +96,10 @@ You can see straight away that we are building up functionality using small pure
 Each of our handwritten functions have a Ramda equivalent we can use instead.
 
 ```js
-//filterTeam definition
 var filterTeam = R.filter(R.propEq('inTeam', true));
 
-//projectNames definition
-var projectNames = R.map(R.project('firstName', 'surname'));
+var projectNames = R.map(R.props(['firstName', 'surname']));
 
-//sortBySurname definition
 var sortBySurname = R.sortBy(R.prop('surname'));
 ```
 
@@ -119,7 +114,7 @@ var getTeamNames = R.compose(sortBySurname, projectNames, filterTeam);
 Let's look at an example from the General Election project. Data is sent through about each constituency and declared areas are shown on the TV output on a UK map graphic.  A small part of the data transformation is filtering the declared constituencies.
 
 ```js
-var projectMapItem = R.project(['gssID', 'fullName', 'partyCodeLast', 'partyCodeNow', 'gainHoldWin']);
+var projectMapItem = R.props(['gssID', 'fullName', 'partyCodeLast', 'partyCodeNow', 'gainHoldWin']);
 
 var sortByDeclarationTime = R.sortBy(R.prop('declarationTime'));
 
@@ -134,4 +129,4 @@ These are just a couple of examples of where a toolbox of functions saves you ti
 
 ##Conclusion
 
-The use of *higher-order* functions and a framework of pre-built functions isn't new to many javascript programmers but the use of composition to create pipelines and break down each step into managable and pure functions, that are easy to reason about and easy to maintain, has made my work more enjoyable.  Messing around with tons of glue code is not fun and should be avoided at all costs in my opinion.  Remember you only have a finite number of keystrokes - use them wisely!  Oh and if you're going to do anything, make sure you're doing it *right* ;)
+The use of *higher-order* functions and a framework of pre-built functions isn't new to many javascript programmers but the use of composition to create pipelines and break down each step into manageable and pure functions, that are easy to reason about and easy to maintain, has made my work more enjoyable.  Messing around with tons of glue code is not fun and should be avoided at all costs in my opinion.  Remember you only have a finite number of keystrokes - use them wisely!  Oh and if you're going to do anything, make sure you're doing it *right* ;)

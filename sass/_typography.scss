@@ -23,13 +23,35 @@ a{
 	color: $dark-link-colour;
 }
 
+pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
 em{
 	font-style: italic;
+}
+
+.clickable{
+  cursor: pointer;
+  text-decoration: underline;
+  color: "#00F"
 }
 
 
 #{headings(all)}{
 	color: $title-colour;
+}
+
+.icon{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 8px;
+  margin-right: 18px;
 }
 
 .title{
@@ -160,3 +182,10 @@ p {
 	}
 }
 
+.highlight{
+	border: 1px solid #aaa;
+	padding: 1.4em;
+	font-family: monospace;
+	margin-bottom: 1em;
+  font-size: 14px;
+}
