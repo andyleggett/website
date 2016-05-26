@@ -7,7 +7,7 @@
 	<title>{{ page.title }}</title>
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="Andy Leggett">
 	<meta name="description" content="{{ page.description }}">
 	<link rel="stylesheet" href="/css/site.css">
@@ -25,9 +25,9 @@
 					</a>
 				</div>
 				<div class="navigation">
-					<img class="nav-icon" src="/images/menu-icon.png" />
+					<img id="nav-icon" class="nav-icon" src="/images/menu-icon.png" />
 					<nav role="navigation">
-						<ul class="nav-links">
+						<ul id="nav-links" class="nav-links">
 							<li><a href="/about">About me</a></li>
 							<li><a href="/start">Start a project</a></li>
 							<li><a href="/articles">Articles</a></li>
@@ -54,6 +54,7 @@
 	{% if page.script %}
 		<script src="/js/libs.js"></script>
 		<script src="/js/{{page.script}}"></script>
-		{% endif %}
+	{% endif %}
+		<script src="/js/site.js"></script>
 </body>
 </html>

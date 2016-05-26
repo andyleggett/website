@@ -44,7 +44,7 @@ gulp.task('libs', function() {
     .on('error', handleErrors)
     .pipe(source('libs.js'))
     .pipe(buffer())
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest(config.outputDirScripts));
 });
 
@@ -61,11 +61,11 @@ gulp.task('scripts', function() {
       .on('error', handleErrors)
       .pipe(source(entry))
       .pipe(buffer())
-      .pipe(sourcemaps.init({
-        loadMaps: true
-      }))
+      //.pipe(sourcemaps.init({
+      //  loadMaps: true
+      //}))
       //.pipe(uglify())
-      .pipe(sourcemaps.write('./'))
+      //.pipe(sourcemaps.write('./'))
       .pipe(gulp.dest(config.outputDirScripts))
       .pipe(reload({
         stream: true
@@ -100,7 +100,7 @@ gulp.task('jekyll-build', function() {
   return child.spawn('jekyll', ['build'], {
     stdio: 'inherit'
   }).on('close', function() {
-    sequence('scripts', 'libs');
+    sequence('compass', 'scripts', 'libs');
   });
 });
 
@@ -114,7 +114,7 @@ gulp.task('watch', function() {
   gulp.watch('package.json', ['libs']);
   gulp.watch('_scripts/**', ['scripts']);
   gulp.watch('sass/**/*.scss', ['compass']);
-  gulp.watch(['*.html', '*.yml', 'about/**/*', 'start/**/*', 'projects/**', 'work/**', 'articles/**', '_includes/**', '_posts/**', '_layouts/**', '_templates/**', '_plugins/**'], ['jekyll-build']);
+  gulp.watch(['*.html', '*.yml', 'about/**/*', 'start/**/*', 'projects/**', 'work/**', 'articles/**', '_includes/**', '_posts/**', '_layouts/**', '_templates/**', '_plugins/**', 'images/**'], ['jekyll-build']);
 });
 
 gulp.task('default', ['jekyll-build', 'watch']);

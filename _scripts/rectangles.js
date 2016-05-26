@@ -129,6 +129,7 @@ const checkObjects = () => {
 var containerElem = document.getElementById('container');
 var svgElem = document.getElementById('container-svg');
 var clearElem = document.getElementById('clear-svg');
+var addElem = document.getElementById('add-svg');
 var containerWidth = containerElem.offsetWidth;
 
 const canvas = {
@@ -234,8 +235,8 @@ const clearObjects = () => {
   containerRect = createOutline(svg, container);
 };
 
-containerElem.addEventListener('dblclick', createNewObject);
 clearElem.addEventListener('click', clearObjects);
+addElem.addEventListener('click', createNewObject);
 
 //create SVG
 const svg = snapsvg(svgElem);

@@ -8,8 +8,8 @@ script: rectangles.js
 
 A product designer I worked on had different bounding borders that all user-generated text and shapes had to fit inside. The designer would warn the user if their design had strayed outside of this border. I wanted to go through how we can use functions to pipeline the calculations for this check.
 
-Here's what we are after - the outline is our bounding box - it'll be blue if the objects are all inside and red if not. The objects can be dragged around to show the effect of the calculation. Double whatever to add more objects...
-<div id="clear-svg" class="centre-content clickable">CLEAR OBJECTS</div>
+Here's what we are after - the outline is our bounding box - it'll be blue if the objects are all inside and red if not. The objects can be dragged around to show the effect of the calculation.
+<div class="centre-content"><span id="clear-svg" class="clickable" style="margin-right: 60px;">CLEAR OBJECTS</span><span id="add-svg" class="clickable">ADD AN OBJECT</span></div>
 <div id="container" class="centre-content"><svg style="width:100%" id="container-svg"></svg></div>
 
 ## Start Simple
