@@ -1,215 +1,220 @@
-html, body{
-	background: $background-colour;
-	height: 100%;
-	overflow-x: hidden;
-	overflow-y: scroll;
-  	-webkit-overflow-scrolling: touch;
+html,
+body {
+    background: $background-colour;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
-.header{
-	overflow: hidden;
-	background-color: $header-colour;
-	@include background-image(linear-gradient(top, lighten($header-colour, 5%), $header-colour));
-	width: 100%;
-	height: 4em;
+.header {
+    overflow: hidden;
+    background-color: $header-colour;
+    @include background-image(linear-gradient(top, lighten($header-colour, 5%), $header-colour));
+    width: 100%;
+    height: 4em;
 
-	@include at-breakpoint($break-1) {
-		height: 7em;
-	}
+    @include at-breakpoint($break-1) {
+        height: 7em;
+    }
 }
 
 .inner-header {
+    max-width: 59em;
+    margin: 0 auto;
+    overflow: hidden;
 
-	max-width: 59em;
-	margin: 0 auto;
-	overflow: hidden;
+    .logo {
+        float: left;
 
-	.logo{
+        .image {
+            background-image: url("../images/harvey.png");
+            background-size: 50px 50px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            border: 3px solid $border-colour;
+            width: 3em;
+            height: 3em;
+            margin: 0.5em 0 0.2em 0.4em;
+            border-radius: 50%;
 
-		float: left;
+            @include at-breakpoint($break-1) {
+                background-size: 100px 100px;
+                width: 6em;
+                height: 6em;
+                margin: 0.5em 0 0.5em 1em;
+            }
+        }
+    }
 
-		.image{
-			background-image: url(../images/harvey.png);
-			background-size: 50px 50px;
-			background-repeat: no-repeat;
-			background-position: 50% 50%;
-			border: 3px solid $border-colour;
-			width: 3em;
-			height: 3em;
-			margin: 0.5em 0 0.2em 0.4em;
-			border-radius: 50%;
+    .navigation {
+        float: right;
+        color: #fff;
 
-			@include at-breakpoint($break-1) {
-				background-size: 100px 100px;
-				width: 6em;
-				height: 6em;
-				margin: 0.5em 0 0.5em 1em;
-			}
-		}
-	}
+        .nav-icon {
+            display: block;
+            width: 3em;
+            height: auto;
+            margin: 0.5em 0.5em 0 0;
+            cursor: pointer;
 
-	.navigation{
-		float: right;
-		color: #fff;
+            @include at-breakpoint($break-1) {
+                display: none;
+                margin: 2em 1em 0 0;
+            }
+        }
 
-		.nav-icon{
-			display: block;
-			width: 3em;
-			height: auto;
-			margin: 0.5em 0.5em 0 0;
-			cursor: pointer;
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 4em;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: $header-colour;
 
-			@include at-breakpoint($break-1) {
-				display: none;
-				margin: 2em 1em 0 0;
-			}
-		}
+            @include at-breakpoint($break-1) {
+                display: block;
+                margin: 3em;
+                position: relative;
+                top: auto;
+                border: none;
+                z-index: 1;
+            }
 
-		.nav-links{
+            li {
+                display: block;
+                width: 100%;
+                font-size: 1.5em;
+                text-align: center;
+                padding: 0.5em;
+                border-top: 1px solid darken($header-colour, 10%);
 
-			display: none;
-			position: absolute;
-			top:4em;
-			left: 0;
-			right: 0;
-			z-index: 1000;
-			background-color: $header-colour;
+                & > a {
+                    display: block;
+                    color: $link-colour;
+                    text-decoration: none;
+                }
 
-			@include at-breakpoint($break-1) {
-				display: block;
-				margin: 3em;
-				position: relative;
-				top: auto;
-				border: none;
-				z-index: 1;
-			}
-
-			li {
-				display: block;
-				width: 100%;
-				font-size: 1.5em;
-				text-align: center;
-				padding: 0.5em;
-				border-top: 1px solid darken($header-colour, 10%);
-
-				& > a {
-					display:block;
-					color: $link-colour;
-					text-decoration: none;
-				}
-
-				@include at-breakpoint($break-1) {
-					float: left;
-					width: auto;
-					font-size: 1.2em;
-					margin-right: 0.5em;
-					border: none;
-				}
-			}
-		}
-	}
+                @include at-breakpoint($break-1) {
+                    float: left;
+                    width: auto;
+                    font-size: 1.2em;
+                    margin-right: 0.5em;
+                    border: none;
+                }
+            }
+        }
+    }
 }
 
-.content-container{
-	position: relative;
+.content-container {
+    position: relative;
 }
 
-.content{
-	//@include susy-grid-background;
-	@include container($total-columns, $break-1);
+.content {
+    //@include susy-grid-background;
+    @include container($total-columns, $break-1);
 
-
-	@include at-breakpoint($break-1) {
-	//	@include susy-grid-background;
-  	}
-
+    @include at-breakpoint($break-1) {
+        //	@include susy-grid-background;
+    }
 }
 
 .group {
-	overflow: hidden;
+    overflow: hidden;
 }
 
-
-.footer{
-	background-color: $footer-colour;
-	height: 4em;
-
-	@include box-shadow(rgba(0, 0, 0, 0.1) 0 1px 3px inset);
+.footer {
+    background-color: $footer-colour;
+    height: 4em;
+    @include box-shadow(rgba(0, 0, 0, 0.1) 0 1px 3px inset);
 }
 
-.inner-footer{
-	max-width: 59em;
-	margin: 0 auto;
-	text-align: center;
-	padding: 2em 0;
+.inner-footer {
+    max-width: 59em;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2em 0;
 }
 
-section{
-	padding: 1em 0;
-	overflow: hidden;
+section {
+    padding: 1em 0;
+    overflow: hidden;
 }
 
-.highlight-section{
-	position: relative;
-	background: $section-colour;
-	margin: 0 -500%;
-  	padding: 0.5em 500%;
+.highlight-section {
+    position: relative;
+    background: $section-colour;
+    margin: 0 -500%;
+    padding: 0.5em 500%;
 }
 
 .left {
-	text-align: left;
+    text-align: left;
 }
 
 .centre-content {
-	text-align: center;
+    text-align: center;
 }
 
-.centre{
-	margin: 0 auto;
+.centre {
+    margin: 0 auto;
 }
 
-.col-left{
-
-	@include at-breakpoint($break-1) {
-		@include span-columns(6);
-  	}
+.col-left {
+    @include at-breakpoint($break-1) {
+        @include span-columns(6);
+    }
 }
 
-.col-right{
-	@include at-breakpoint($break-1) {
-		@include span-columns(6 omega);
-  	}
+.col-right {
+    @include at-breakpoint($break-1) {
+        @include span-columns(6 omega);
+    }
 }
 
 .articles-list {
-	li {
-		font-size: 1.2em;
+    li {
+        font-size: 1.2em;
 
-		span {
-			font-style: italic;
-			font-size: 12px;
+        span {
+            font-style: italic;
+            font-size: 12px;
+        }
+        margin-bottom: 1em;
+    }
+}
 
+.margin-12 {
+    margin: 12px 0;
+}
+
+.margin-24 {
+    margin: 24px 0;
+}
+
+.map {
+    height: 500px;
+}
+
+.loading {
+    margin: 30px 0;
+    font-size: 32px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.table-striped {
+    width: 100%;
+
+		th{
+			  background-color: #ccc;
+				padding: 6px;
 		}
 
-		margin-bottom: 1em;
-	}
-}
-
-.margin-12{
-	margin: 12px 0;
-}
-
-.margin-24{
-	margin: 24px 0;
-}
-
-.map{
-	height: 500px;
-}
-
-.loading{
-	margin-top: 100px;
-	font-size: 32px;
-	font-weight: 400;
-	text-align: center;
+    td{
+        padding: 6px;
+				border: 1px solid #ccc;
+    }
 }

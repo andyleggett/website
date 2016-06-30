@@ -1,21 +1,8 @@
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url(http://themes.googleusercontent.com/static/fonts/opensans/v8/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
-}
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: url(http://themes.googleusercontent.com/static/fonts/opensans/v8/MTP_ySUJH_bn48VBG8sNSqRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
-}
-
 body{
 	font-size: 100%;
 	line-height: 1.5;
-	font-family: "Open Sans";
-	color: $text-colour;
+	font-family: Verdana, sans-serif;
+	color: $text-colour; 
 }
 
 a{
@@ -24,11 +11,8 @@ a{
 }
 
 pre {
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
+   overflow-y:hidden;
+   overflow-x: auto;
 }
 
 em{
